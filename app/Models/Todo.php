@@ -16,7 +16,7 @@ class Todo extends Model
 
     /**
      *  Updated at column
-     */    
+     */
     const UPDATED_AT = 'td_updated_at';
 
     /**
@@ -29,4 +29,8 @@ class Todo extends Model
         'td_description',
         'td_status',
     ];
+
+    public function comment() {
+        return $this->hasMany(Comment::class, 'cm_td_id', 'td_id');
+    }
 }

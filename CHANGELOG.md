@@ -19,9 +19,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.3]
+
+### Changed
+
+- Now the lazy man was looking at the code again
+- He is not satisfied since he can see that the code is not on laravel eloquent standards 
+- So he tries to make some little changes to show to the world how the model connection works with eloquent eager loading
+- Eventhough he knows that the present query makes it bit slower he wants to show that he knows it the laravel way
+- One thing he learnt out of it is when to have a query stated with todo model and when it must be with the comments table when there is a join operation
+- He is back to his music world again
+
 ## [2.2]
 
-### Added
+### Changed / Added
 
 - Now the lazy man was looking at the code again
 - He found that nowhere in the code the comments and todo tables are connected in any way
@@ -129,7 +140,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He wanted to create someting but still has not made up with his mind
 - He initilized a repository though
 
-[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.2...HEAD
+[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.3...HEAD
+[2.2]: https://github.com/deepak0023/laravel_backend/compare/v2.2...v2.3
 [2.2]: https://github.com/deepak0023/laravel_backend/compare/v2.1...v2.2
 [2.1]: https://github.com/deepak0023/laravel_backend/compare/v2.0...v2.1
 [2.0]: https://github.com/deepak0023/laravel_backend/compare/v1.9...v2.0

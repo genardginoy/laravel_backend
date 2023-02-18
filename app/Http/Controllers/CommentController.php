@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Comment;
+use App\Models\Todo;
 
 class CommentController extends Controller
 {
@@ -15,10 +16,13 @@ class CommentController extends Controller
      */
     public function index($td_id)
     {
-        $comments = Comment::where('cm_td_id', $td_id)->get();
+        $todo_comments = Todo::with('comment')->whereHas('comment', function($query) use ($td_id) {
+            $query->where('cm_td_id', '=', $td_id);
+        })->first();
+
         return response()->json([
             "message" => "successfully fetched all comments for the todo",
-            "data"    => $comments
+            "data"    => $todo_comments->comment
         ], 200);
     }
 
@@ -51,11 +55,11 @@ class CommentController extends Controller
             'cm_description' => $request->input('description'),
         ];
 
-        $comment = Comment::create($data);
+        $todo_comment = Comment::create($data);
 
         return response()->json([
             "message" => "Comment item successfully created for the todo",
-            "data"    => $comment
+            "data"    => $todo_comment
         ], 201);
     }
 
@@ -68,7 +72,9 @@ class CommentController extends Controller
     public function show($td_id, $id)
     {
         if(Comment::where('cm_id', $id)->exists()) {
-            $comment = Comment::where('cm_id', $id)->get();
+            $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
+                $query->where('td_id', '=', $td_id);
+            })->where('cm_id', $id)->first();
         } else {
             return response()->json([
                 "message" => "No Comment item for the mentioned id",
@@ -78,7 +84,7 @@ class CommentController extends Controller
 
         return response()->json([
             "message" => "success",
-            "data"    => $comment
+            "data"    => $todo_comment
         ], 200);
     }
 
@@ -97,7 +103,9 @@ class CommentController extends Controller
         if(!empty($request->input('description'))) $data['cm_description'] = $request->input('description');
 
         if(Comment::where('cm_id', $id)->exists()) {
-            Comment::where('cm_id', $id)->update($data);
+            $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
+                $query->where('td_id', '=', $td_id);
+            })->where('cm_id', $id)->update($data);
         } else {
             return response()->json([
                 "message" => "No comment item for the mentioned id",
@@ -122,7 +130,9 @@ class CommentController extends Controller
     public function destroy($td_id, $id)
     {
         if(Comment::where('cm_id', $id)->exists()) {
-            Comment::where('cm_id', $id)->delete();
+            $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
+                $query->where('td_id', '=', $td_id);
+            })->where('cm_id', $id)->delete();
         } else {
             return response()->json([
                 "message" => "No comment item for the mentioned id",

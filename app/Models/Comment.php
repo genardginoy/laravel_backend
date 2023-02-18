@@ -29,4 +29,9 @@ class Comment extends Model
         'cm_title',
         'cm_description'
     ];
+
+    public function todo() {
+        return $this->belongsTo(Todo::class, 'cm_td_id', 'td_id');
+    }
+
 }
