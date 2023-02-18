@@ -140,7 +140,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He wanted to create someting but still has not made up with his mind
 - He initilized a repository though
 
-[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.3...HEAD
+
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.3...HEAD
 [2.2]: https://github.com/deepak0023/laravel_backend/compare/v2.2...v2.3
 [2.2]: https://github.com/deepak0023/laravel_backend/compare/v2.1...v2.2
 [2.1]: https://github.com/deepak0023/laravel_backend/compare/v2.0...v2.1
