@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Todo extends Model
+class Comment extends Model
 {
     use HasFactory;
 
     /**
      *  Created at column
      */
-    const CREATED_AT = 'td_created_at';
+    const CREATED_AT = 'cm_created_at';
 
     /**
      *  Updated at column
      */
-    const UPDATED_AT = 'td_updated_at';
+    const UPDATED_AT = 'cm_updated_at';
 
     /**
      * The attributes that are mass assignable.
@@ -25,12 +25,13 @@ class Todo extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'td_title',
-        'td_description',
-        'td_status',
+        'cm_td_id',
+        'cm_title',
+        'cm_description'
     ];
 
-    public function comment() {
-        return $this->hasMany(Comment::class, 'cm_td_id', 'td_id');
+    public function todo() {
+        return $this->belongsTo(Todo::class, 'cm_td_id', 'td_id');
     }
+
 }
