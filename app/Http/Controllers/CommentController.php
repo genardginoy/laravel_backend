@@ -13,11 +13,11 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($td_id)
     {
-        $comments = Comment::all();
+        $comments = Comment::where('cm_td_id', $td_id)->get();
         return response()->json([
-            "message" => "successfully fetched all comment data",
+            "message" => "successfully fetched all comments for the todo",
             "data"    => $comments
         ], 200);
     }
@@ -28,7 +28,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $td_id)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
@@ -46,6 +46,7 @@ class CommentController extends Controller
 
         // Get input values
         $data = [
+            'cm_td_id' => (int) $td_id,
             'cm_title' => $request->input('title'),
             'cm_description' => $request->input('description'),
         ];
@@ -53,7 +54,7 @@ class CommentController extends Controller
         $comment = Comment::create($data);
 
         return response()->json([
-            "message" => "Comment item successfully created",
+            "message" => "Comment item successfully created for the todo",
             "data"    => $comment
         ], 201);
     }
@@ -64,7 +65,7 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($td_id, $id)
     {
         if(Comment::where('cm_id', $id)->exists()) {
             $comment = Comment::where('cm_id', $id)->get();
@@ -88,7 +89,7 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $td_id, $id)
     {
         $data = [];
 
@@ -118,7 +119,7 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($td_id, $id)
     {
         if(Comment::where('cm_id', $id)->exists()) {
             Comment::where('cm_id', $id)->delete();

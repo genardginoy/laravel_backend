@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Todo extends Model
+class Comment extends Model
 {
     use HasFactory;
 
@@ -25,6 +25,7 @@ class Todo extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'cm_td_id',
         'cm_title',
         'cm_description'
     ];

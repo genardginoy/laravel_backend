@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(!Schema::hasTable('comments')) {
+            Schema::create('comments', function (Blueprint $table) {
+                $table->increments('cm_id');
+                $table->string('cm_title');
+                $table->text('cm_description');
+                $table->timestamp('cm_created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+                $table->timestamp('cm_updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            });
+        }
     }
 
     /**
