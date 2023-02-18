@@ -16,9 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::group(['prefix' => 'api/v1', 'namespace'=>'App\Http\Controllers'], function() {
-    Route::resource('todo', 'TodoController', [
-        'except' => ['edit', 'create'] 
-    ]);
-});

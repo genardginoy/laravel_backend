@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.0]
+
+### Added
+
+- The lazy man looked at the code closely to check where the routes were defined
+- He move moved the routes from routs.php to api.php  
+
 ## [1.9]
 
 ### Added
