@@ -1,0 +1,17 @@
+
+Create a signup screen for admin signup.
+
+Create a screen for adding a blog, and there the admin can add a blog ( title, image, desc ) with commenting feature.
+
+Show the list of the added blog to the datatable and also show the count of comment on each posted blogs. (Admin Can edit, add new, and delete blogs from that data table).
+
+Once the blog will posted by the admin then show them on the particular link and then
+
+user 1 will come to the link and comment on that blog by entering ( Name, email and comment(desc)) and post the comment, and the new user will create from entered information ( id: email pwd: email)
+user 2 will come on the link and comment on that blog by entering ( Name, email and comment(desc)) and post the comment, and the new user will create from entered information   ( id: email pwd: email)
+user 3 will come on the link and comment on that blog by entering ( Name, email and comment(desc)) and post the comment, and the new user will create from entered information  ( id: email pwd: email) and so on...
+Note: The user can edit the posted comment after login. Each user can see only his own comment, and the admin can see all the comment
+
+Data should add through AJAX while adding/editing the data, page should not refresh.
+
+Create custom role management , don't use prebuilt packages. Don't bother about the UI, you can simply use any HTML or JS framework for this task and use the latest version of laravel.

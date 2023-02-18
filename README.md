@@ -44,3 +44,7 @@ php artisan migrate    [In the project root directory]
 php artisan tinker
 App\Models\Todo::factory(30)->create();   [Creates 30 fake random records]
 ```
+
+#### Now for some fun
+
+* Definitely checkout my [CHANGELOG.md](https://github.com/deepak0023/laravel_backend/blob/master/CHANGELOG.md) for some fun and development process feel

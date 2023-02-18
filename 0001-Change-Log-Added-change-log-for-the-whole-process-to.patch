@@ -1,0 +1,161 @@
+From f94c80808a4cb9c37d457fadfda59186ec5abe89 Mon Sep 17 00:00:00 2001
+From: deepak <deepamdeebu@gmail.com>
+Date: Sat, 18 Feb 2023 14:20:21 +0530
+Subject: [PATCH] Change Log : Added change log for the whole process to be
+ funny with the implementation
+
+Changelog : Change log changes
+---
+ CHANGELOG.md | 114 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ task_list    |  17 ++++++++
+ 2 files changed, 131 insertions(+)
+ create mode 100644 CHANGELOG.md
+ create mode 100755 task_list
+
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+new file mode 100644
+index 0000000..609edfb
+--- /dev/null
++++ b/CHANGELOG.md
+@@ -0,0 +1,114 @@
++# Changelog
++
++All notable changes to this project will be documented in this file.
++
++The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
++and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
++
++## [Crazy moments]
++
++### Some crazy tools he tried in between
++
++- Tried using postman to check for APIs
++- He learnt about creating collections
++- And guess what he also hosted the api document on a website with postman short url support [API Documentation](https://documenter.getpostman.com/view/23446250/2s7Z13jNjD)
++
++## [Unreleased]
++
++### Looking out for some damn issue
++
++- Nights watch activated
++
++## [1.9]
++
++### Added
++
++- He added change log to track how lazy and funny his life is  
++
++## [1.8]
++
++### Added
++
++- He for moment started looking out for the git history  
++- Tears rolled out of his eyes and he was not ale to believe himself doing this much being lazy
++- He thought of respecting himself for a moment by standing in the place where he was
++- He started documenting about the glory he achieved and fixing some bugs in the code
++
++## [1.7]
++
++### Added
++
++- He was too damn lazy to import data using seeder and test the code
++- So he came to know about this faker implementation in laravel
++- Tried to mimic someone's code and saw themagic work for him using tinker 
++
++## [1.6]
++
++### Added
++
++- This time around with lot of determination he added required code to the controller for crud operation
++- For his own amusement he was pretty much abole to achieve many things on the single table
++- He thought he was done and he stated listning to the music collection he has got on spotify account 
++
++## [1.5]
++
++### Added
++
++- He again came back to his system and started staing at the code
++- Suddenly for no damn reason whatsoever he got a rare scenaio in his mind "Why not create an API"
++- Now that the post request has got a CSRF check to it which hearnt about it from somewhere during work
++- He thought of disabling it
++- Again without any testing he got lazy and was distracted 
++
++## [1.4]
++
++### Added
++
++- He created a model for the migrated table
++- Now that all the things were in place He thought of 
++  checking model connection from the controller just for the sake of it
++- He again got distracted 
++
++## [1.3]
++
++### Added
++
++- He got bored again enjoing .
++- He again looked at the code closely
++- He found that he needed a table to work with
++- So he learnt about migrations and gave it a try
++- Again he became lazy but he thought of creating the model too for the migration created
++
++## [1.2]
++
++### Added
++
++- He got bored of wandering around .
++- He thought of checking out how the routes and contoller are connected
++- Geuss what he again become lazy
++
++## [1.1]
++
++### Added
++
++- Suddenly he found laravel and the ace to work with it .
++- He imported it to his local with composer package management
++- Geuss what he again become lazy
++
++## [1.0]
++
++### Added
++
++- The person is lazy to start with 
++- He wanted to create someting but still has not made up with his mind
++- He initilized a repository though
++
++[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.8...HEAD
++[0.0.8]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.7...v1.8
++[0.0.7]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.6...v1.7
++[0.0.6]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.5...v1.6
++[0.0.5]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.4...v1.5
++[0.0.4]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.3...v1.4
++[0.0.3]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.2...v1.3
++[0.0.2]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0...v1.1
++[0.0.1]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/v1.0
+diff --git a/task_list b/task_list
+new file mode 100755
+index 0000000..13f3bd6
+--- /dev/null
++++ b/task_list
+@@ -0,0 +1,17 @@
++
++Create a signup screen for admin signup.
++
++Create a screen for adding a blog, and there the admin can add a blog ( title, image, desc ) with commenting feature.
++
++Show the list of the added blog to the datatable and also show the count of comment on each posted blogs. (Admin Can edit, add new, and delete blogs from that data table).
++
++Once the blog will posted by the admin then show them on the particular link and then
++
++user 1 will come to the link and comment on that blog by entering ( Name, email and comment(desc)) and post the comment, and the new user will create from entered information ( id: email pwd: email)
++user 2 will come on the link and comment on that blog by entering ( Name, email and comment(desc)) and post the comment, and the new user will create from entered information   ( id: email pwd: email)
++user 3 will come on the link and comment on that blog by entering ( Name, email and comment(desc)) and post the comment, and the new user will create from entered information  ( id: email pwd: email) and so on...
++Note: The user can edit the posted comment after login. Each user can see only his own comment, and the admin can see all the comment
++
++Data should add through AJAX while adding/editing the data, page should not refresh.
++
++Create custom role management , don't use prebuilt packages. Don't bother about the UI, you can simply use any HTML or JS framework for this task and use the latest version of laravel.
+\ No newline at end of file
+-- 
+2.34.1
+
