@@ -10,7 +10,10 @@
 * Update the existing todo item
 * Delete a specific todo item
 
-#### The [API documentation](https://documenter.getpostman.com/view/23446250/2s7Z13jNjD) for the same is privided with examples.
+#### API documentation
+
+* Todo entity -> [Click here](https://documenter.getpostman.com/view/23446250/2s7Z13jNjD)
+* Comment entity over Todo -> [Click here](https://documenter.getpostman.com/view/23446250/2s93CHuEuV)  
 
 ## Project Setup
 

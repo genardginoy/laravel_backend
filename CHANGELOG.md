@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.4]
+
+### Added
+
+- The lazy man happily erged the code
+- Testing was done to an extend but you know he is too lazy for a regurous testing or a regression testing 
+- He might be well of having a unit testing setup for a stable version but again he is too lazy for that as of now
+- He without a second thought publishes the comment collection API documentation with postman API
+- Guess what he understood how to organize postman api request set under seperate folder under a collection in a specific workplace along the way 
+
 ## [2.3]
 
 ### Changed
@@ -141,8 +151,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.3...HEAD
-[2.2]: https://github.com/deepak0023/laravel_backend/compare/v2.2...v2.3
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.4...HEAD
+[2.4]: https://github.com/deepak0023/laravel_backend/compare/v2.3...v2.4
+[2.3]: https://github.com/deepak0023/laravel_backend/compare/v2.2...v2.3
 [2.2]: https://github.com/deepak0023/laravel_backend/compare/v2.1...v2.2
 [2.1]: https://github.com/deepak0023/laravel_backend/compare/v2.0...v2.1
 [2.0]: https://github.com/deepak0023/laravel_backend/compare/v1.9...v2.0
