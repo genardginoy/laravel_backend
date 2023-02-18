@@ -19,6 +19,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.1]
+
+### Added
+
+- The lazy man looked on to the issue list and saw a new one pop up
+- Now like always he wants to somehow evade from it
+- So he created a new branch for the same and came up with this createtive idea
+- Now might be thinking how he added this much code within no time but from the inside all he has done is a copy paste with new nomenclature 
+
 ## [2.0]
 
 ### Added
@@ -110,7 +119,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He wanted to create someting but still has not made up with his mind
 - He initilized a repository though
 
-[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.9...HEAD
+[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.1...HEAD
+[2.1]: https://github.com/deepak0023/laravel_backend/compare/v2.0...v2.1
+[2.0]: https://github.com/deepak0023/laravel_backend/compare/v1.9...v2.0
 [1.9]: https://github.com/deepak0023/laravel_backend/compare/v1.8...v1.9
 [1.8]: https://github.com/deepak0023/laravel_backend/compare/v1.7...v1.8
 [1.7]: https://github.com/deepak0023/laravel_backend/compare/v1.6...v1.7

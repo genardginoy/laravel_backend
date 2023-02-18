@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('todos', function (Blueprint $table) {
-            $table->increments('td_id');
-            $table->string('td_title');
-            $table->text('td_description');
-            $table->string('td_status', 1);
-            $table->timestamp('td_created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('td_updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-        });
+        if(!Schema::hasTable('todos')) {
+            Schema::create('todos', function (Blueprint $table) {
+                $table->increments('td_id');
+                $table->string('td_title');
+                $table->text('td_description');
+                $table->string('td_status', 1);
+                $table->timestamp('td_created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+                $table->timestamp('td_updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            });
+        }
     }
 
     /**
