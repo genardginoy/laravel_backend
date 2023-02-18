@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.0]
+
+### Added
+
+- The lazy man looked at the code closely to check where the routes were defined
+- He move moved the routes from routs.php to api.php  
+
 ## [1.9]
 
 ### Added
@@ -103,7 +110,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He wanted to create someting but still has not made up with his mind
 - He initilized a repository though
 
-[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.9...HEAD
+[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.0...HEAD
+[2.0]: https://github.com/deepak0023/laravel_backend/compare/v1.9...v2.0
 [1.9]: https://github.com/deepak0023/laravel_backend/compare/v1.8...v1.9
 [1.8]: https://github.com/deepak0023/laravel_backend/compare/v1.7...v1.8
 [1.7]: https://github.com/deepak0023/laravel_backend/compare/v1.6...v1.7
