@@ -10,6 +10,14 @@
 * Update the existing todo item
 * Delete a specific todo item
 
+### Comment Resource
+
+* Read the list of comment under a todo items
+* Read a specific comment under a todo items
+* Create a new comment under a todo item
+* Update the existing comment under a todo item
+* Delete a specific comment under a todo item
+
 #### API documentation
 
 * Todo entity -> [Click here](https://documenter.getpostman.com/view/23446250/2s7Z13jNjD)

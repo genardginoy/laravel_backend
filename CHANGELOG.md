@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.5]
+
+### Added
+
+- The lazy man is back online 
+- He was wandering around in the web
+- Suddenly he fuond a cleaner implementation of the same relation code 
+- He thought of giving it a try and just want to play around and learn the new way 
+- He also updated the readme when he spent time to look at that
+
 ## [2.4]
 
 ### Added
@@ -151,7 +161,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.4...HEAD
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.5...HEAD
+[2.5]: https://github.com/deepak0023/laravel_backend/compare/v2.4...v2.5
 [2.4]: https://github.com/deepak0023/laravel_backend/compare/v2.3...v2.4
 [2.3]: https://github.com/deepak0023/laravel_backend/compare/v2.2...v2.3
 [2.2]: https://github.com/deepak0023/laravel_backend/compare/v2.1...v2.2

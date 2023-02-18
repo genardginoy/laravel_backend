@@ -16,13 +16,15 @@ class CommentController extends Controller
      */
     public function index($td_id)
     {
-        $todo_comments = Todo::with('comment')->whereHas('comment', function($query) use ($td_id) {
-            $query->where('cm_td_id', '=', $td_id);
-        })->first();
+        // $todo_comments = Todo::with('comment')->whereHas('comment', function($query) use ($td_id) {
+        //     $query->where('cm_td_id', '=', $td_id);
+        // })->first();
+
+        $todo =  Todo::where('td_id', $td_id)->first();
 
         return response()->json([
             "message" => "successfully fetched all comments for the todo",
-            "data"    => $todo_comments->comment
+            "data"    => $todo->comment()->get()
         ], 200);
     }
 
@@ -48,14 +50,15 @@ class CommentController extends Controller
             ]);
         }
 
+        $todo = Todo::where('td_id', $td_id)->first();
+
         // Get input values
-        $data = [
-            'cm_td_id' => (int) $td_id,
+        $comment = new Comment([
             'cm_title' => $request->input('title'),
             'cm_description' => $request->input('description'),
-        ];
+        ]);
 
-        $todo_comment = Comment::create($data);
+        $todo_comment = $todo->comment()->save($comment);
 
         return response()->json([
             "message" => "Comment item successfully created for the todo",
@@ -72,9 +75,14 @@ class CommentController extends Controller
     public function show($td_id, $id)
     {
         if(Comment::where('cm_id', $id)->exists()) {
-            $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
-                $query->where('td_id', '=', $td_id);
-            })->where('cm_id', $id)->first();
+            // $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
+            //     $query->where('td_id', '=', $td_id);
+            // })->where('cm_id', $id)->first();
+
+            $todo = Todo::where('td_id', $td_id)->first();
+
+            $todo_comment = $todo->comment()->where('cm_id')->first();
+
         } else {
             return response()->json([
                 "message" => "No Comment item for the mentioned id",
@@ -103,9 +111,14 @@ class CommentController extends Controller
         if(!empty($request->input('description'))) $data['cm_description'] = $request->input('description');
 
         if(Comment::where('cm_id', $id)->exists()) {
-            $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
-                $query->where('td_id', '=', $td_id);
-            })->where('cm_id', $id)->update($data);
+            // $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
+            //     $query->where('td_id', '=', $td_id);
+            // })->where('cm_id', $id)->update($data);
+
+            $todo = Todo::where('td_id', $td_id)->first();
+
+            $todo_comment = $todo->comment()->where('cm_id', $id)->update($data);
+
         } else {
             return response()->json([
                 "message" => "No comment item for the mentioned id",
@@ -113,11 +126,9 @@ class CommentController extends Controller
             ], 200);
         }
 
-        $comment_data = Comment::where('cm_id', $id)->get();
-
         return response()->json([
             "message" => "Comment item updated successfully",
-            "data"    => $comment_data
+            "data"    => $todo->comment()->where('cm_id', $id)->first()
         ], 200);
     }
 
@@ -130,9 +141,14 @@ class CommentController extends Controller
     public function destroy($td_id, $id)
     {
         if(Comment::where('cm_id', $id)->exists()) {
-            $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
-                $query->where('td_id', '=', $td_id);
-            })->where('cm_id', $id)->delete();
+            // $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
+            //     $query->where('td_id', '=', $td_id);
+            // })->where('cm_id', $id)->delete();
+
+            $todo = Todo::where('td_id', $td_id)->first();
+
+            $todo->comment()->where('cm_id', $id)->delete();
+
         } else {
             return response()->json([
                 "message" => "No comment item for the mentioned id",
