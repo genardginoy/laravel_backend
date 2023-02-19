@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.6]
+
+### Added
+
+- The lazy man was looking at his accomplishments 
+- Suddenly he felt uneasy because he has heard somewhere that file request can be passed through api request
+- Now he wants to know how that can be processed in laravel
+- He hussles and finds some solutions 
+- In the process he also understands how to send file request through postman in different ways
+
 ## [2.5]
 
 ### Added
@@ -161,7 +171,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.5...HEAD
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.6...HEAD
+[2.6]: https://github.com/deepak0023/laravel_backend/compare/v2.5...v2.6
 [2.5]: https://github.com/deepak0023/laravel_backend/compare/v2.4...v2.5
 [2.4]: https://github.com/deepak0023/laravel_backend/compare/v2.3...v2.4
 [2.3]: https://github.com/deepak0023/laravel_backend/compare/v2.2...v2.3
