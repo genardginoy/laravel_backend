@@ -19,6 +19,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.7]
+
+### Added
+
+- For the lazy man it has been three days since he has bathed properly , he took his own sweet time being a sunday on that
+- He has heard about the SOAP API which was kind of old architecture for webservice data transfer
+- Without knowing the complexity involved in creating soap endpoint he tried to give it a try
+- He literally got wasted and confused after watching several vedios
+- The lines he had between the rest api and soap api got blurred up a little
+- He tries out some snippets which are not fully functional but understood how to go about it through postman
+- As of now he understands that the ini settings and a php soap driver is to be installed to go about it
+- He pushed the rest of the effort to be put on that for another day
+- He also thank the gods for having SOAP API's as an outdated standard as a way of escape
+- He understands the requirement for understanding the xml parsers and WSDL before getting into this circus 
+
 ## [2.6]
 
 ### Added
@@ -43,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- The lazy man happily erged the code
+- The lazy man happily merged the code
 - Testing was done to an extend but you know he is too lazy for a regurous testing or a regression testing 
 - He might be well of having a unit testing setup for a stable version but again he is too lazy for that as of now
 - He without a second thought publishes the comment collection API documentation with postman API
@@ -171,7 +186,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.6...HEAD
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.7...HEAD
+[2.7]: https://github.com/deepak0023/laravel_backend/compare/v2.6...v2.7
 [2.6]: https://github.com/deepak0023/laravel_backend/compare/v2.5...v2.6
 [2.5]: https://github.com/deepak0023/laravel_backend/compare/v2.4...v2.5
 [2.4]: https://github.com/deepak0023/laravel_backend/compare/v2.3...v2.4
