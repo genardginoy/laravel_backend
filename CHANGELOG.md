@@ -19,6 +19,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.9] || >> Release point 3 [User with Todo entity API] [one to many]
+
+### Added
+
+- The lazy man tries to bring relation between user table and todo table
+- Hopefully it is fine according to him based on the testing he performed from postman
+- He Also knows what comes along with it - the beast [The authentication and authorization module]
+- He tries to cool himself
+
 ## [2.8]
 
 ### Added
@@ -53,7 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He hussles and finds some solutions 
 - In the process he also understands how to send file request through postman in different ways
 
-## [2.5]
+## [2.5] || >> Release point 2 [Todo with Comment entity API] [one to many]
 
 ### Added
 
@@ -116,7 +125,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - He added change log to track how lazy and funny his life is  
 
-## [1.8]
+## [1.8] || >> Release point 1 [Single Todo Entity API]
 
 ### Added
 
@@ -195,7 +204,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.8...HEAD
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.9...HEAD
+[2.9]: https://github.com/deepak0023/laravel_backend/compare/v2.7...v2.8
 [2.8]: https://github.com/deepak0023/laravel_backend/compare/v2.7...v2.8
 [2.7]: https://github.com/deepak0023/laravel_backend/compare/v2.6...v2.7
 [2.6]: https://github.com/deepak0023/laravel_backend/compare/v2.5...v2.6

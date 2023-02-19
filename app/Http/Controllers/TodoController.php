@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Todo;
+use App\Models\User;
 
 class TodoController extends Controller
 {
@@ -13,12 +14,13 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        $todos = Todo::all();
+        $user =  User::where('id', $user_id)->first();
+
         return response()->json([
             "message" => "successfully fetched all todo data",
-            "data"    => $todos 
+            "data"    => $user->todo()->get()
         ], 200);
     }
 
@@ -28,7 +30,7 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $user_id)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
@@ -47,18 +49,20 @@ class TodoController extends Controller
             ]);
         }
 
+        $user = User::where('id', $user_id)->first();
+
         // Get input values
-        $data = [
+        $todo = new Todo([
             'td_title' => $request->input('title'),
             'td_description' => $request->input('description'),
             'td_status' => $request->input('status')
-        ];
+        ]);
 
-        $todo = Todo::create($data);
+        $user_todo = $user->todo()->save($todo);
 
         return response()->json([
             "message" => "Todo item successfully created",
-            "data"    => $todo 
+            "data"    => $user_todo
         ], 201);
     }
 
@@ -68,10 +72,11 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user_id, $id)
     {
         if(Todo::where('td_id', $id)->exists()) {
-            $todo = Todo::where('td_id', $id)->get();
+            $user = User::where('id', $user_id)->first();
+            $user_todo = $user->todo()->where('td_id', $id)->first();
         } else {
             return response()->json([
                 "message" => "No todo item for the mentioned id",
@@ -81,7 +86,7 @@ class TodoController extends Controller
 
         return response()->json([
             "message" => "success",
-            "data"    => $todo 
+            "data"    => $user_todo
         ], 200);
     }
 
@@ -92,7 +97,7 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $user_id, $id)
     {
         $validator = Validator::make($request->all(), [
             'status' => 'required|in:o,h,c,s'
@@ -107,7 +112,8 @@ class TodoController extends Controller
         if(!empty($request->input('status'))) $data['td_status'] = $request->input('status');
 
         if(Todo::where('td_id', $id)->exists()) {
-            Todo::where('td_id', $id)->update($data);
+            $user = User::where('id', $user_id)->first();
+            $user_todo = $user->todo()->where('td_id', $id)->update($data);
         } else {
             return response()->json([
                 "message" => "No todo item for the mentioned id",
@@ -119,7 +125,7 @@ class TodoController extends Controller
 
         return response()->json([
             "message" => "Todo item updated successfully",
-            "data"    => $todo_data 
+            "data"    => $user->todo()->where('td_id', $id)->first()
         ], 200);
     }
 
@@ -129,10 +135,11 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user_id, $id)
     {
         if(Todo::where('td_id', $id)->exists()) {
-            Todo::where('td_id', $id)->delete();
+            $user = User::where('id', $user_id)->first();
+            $user->todo()->where('td_id', $id)->delete();
         } else {
             return response()->json([
                 "message" => "No todo item for the mentioned id",

@@ -19,9 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'v1', 'namespace'=>'App\Http\Controllers'], function() {
-    Route::resource('todo', 'TodoController', [ 'except' => ['edit', 'create'] ]);
-    Route::resource('todo/{td_id}/comment', 'CommentController', [ 'except' => ['edit', 'create'] ]);
     Route::resource('user', 'UserController', [ 'except' => ['edit', 'create'] ]);
+
+    Route::resource('user/{user_id}/todo', 'TodoController', [ 'except' => ['edit', 'create'] ]);
+    Route::resource('todo/{td_id}/comment', 'CommentController', [ 'except' => ['edit', 'create'] ]);
+
     Route::post('test_file', 'TestFileController@processFileInput')->name('testfile.processfileinput');
     Route::post('test_soap', 'TestSoapController@processSoapRequest')->name('testsoap.processsoaprequest');
 });

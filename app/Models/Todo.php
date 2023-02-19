@@ -28,9 +28,14 @@ class Todo extends Model
         'td_title',
         'td_description',
         'td_status',
+        'td_user_id'
     ];
 
     public function comment() {
         return $this->hasMany(Comment::class, 'cm_td_id', 'td_id');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'td_user_id', 'id');
     }
 }
