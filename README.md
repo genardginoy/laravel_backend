@@ -2,27 +2,34 @@
 
 ## These are the list of api endpoints supported in this project
 
+### User Resource
+
+* Read the list of user
+* Read a specific user
+* Create a new user
+* Update the existing user
+* Delete a specific user
+
 ### Todo Resource
 
-* Read the list of todo items
-* Read a specific todo items
-* Create a new todo item
-* Update the existing todo item
-* Delete a specific todo item
+* Read the list of todo under a user
+* Read a specific todo under a user
+* Create a new todo under a user
+* Update the existing todo under a user
+* Delete a specific todo under a user
 
 ### Comment Resource
 
-* Read the list of comment under a todo items
-* Read a specific comment under a todo items
+* Read the list of comment under a todo item
+* Read a specific comment under a todo item
 * Create a new comment under a todo item
 * Update the existing comment under a todo item
 * Delete a specific comment under a todo item
 
 #### API documentation
 
-* Todo entity -> [Click here](https://documenter.getpostman.com/view/23446250/2s7Z13jNjD)
-* Comment entity over Todo -> [Click here](https://documenter.getpostman.com/view/23446250/2s93CHuEuV)  
-
+[Click here](https://documenter.getpostman.com/view/23446250/2s93CHuEuV#8f2026d4-c1b9-437c-ab07-dcf806861b5b)
+  
 ## Project Setup
 
 #### _To create laravel project_ 

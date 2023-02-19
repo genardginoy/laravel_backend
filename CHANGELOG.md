@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [3.0]
+
+### Added
+
+- The lazy man updated documentation on postman published url
+- Updated the readme content
+- Reads the next issue which he already guessed by now
+- You really can see him being lazy in different ways
+- Plus mind you he is also active big farm player , he needs to help his team to cultivate goods in project in between showing his leadership qualities
+
 ## [2.9] || >> Release point 3 [User with Todo entity API] [one to many]
 
 ### Added
@@ -204,8 +214,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.9...HEAD
-[2.9]: https://github.com/deepak0023/laravel_backend/compare/v2.7...v2.8
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v3.0...HEAD
+[3.0]: https://github.com/deepak0023/laravel_backend/compare/v2.9...v3.0
+[2.9]: https://github.com/deepak0023/laravel_backend/compare/v2.8...v2.9
 [2.8]: https://github.com/deepak0023/laravel_backend/compare/v2.7...v2.8
 [2.7]: https://github.com/deepak0023/laravel_backend/compare/v2.6...v2.7
 [2.6]: https://github.com/deepak0023/laravel_backend/compare/v2.5...v2.6
