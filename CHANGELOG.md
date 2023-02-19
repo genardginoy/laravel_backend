@@ -19,6 +19,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [2.8]
+
+### Added
+
+- The lazy man came back to the issue list
+- Created a normal crud operation on user entity without givong much thought onto validations
+- Verified it on postman and he also came across methods to have testing script on postman
+- Thinks about connecting it to the todo entity
+
 ## [2.7]
 
 ### Added
@@ -186,7 +195,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.7...HEAD
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v2.8...HEAD
+[2.8]: https://github.com/deepak0023/laravel_backend/compare/v2.7...v2.8
 [2.7]: https://github.com/deepak0023/laravel_backend/compare/v2.6...v2.7
 [2.6]: https://github.com/deepak0023/laravel_backend/compare/v2.5...v2.6
 [2.5]: https://github.com/deepak0023/laravel_backend/compare/v2.4...v2.5
