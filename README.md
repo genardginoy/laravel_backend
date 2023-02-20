@@ -28,7 +28,10 @@
 
 #### API documentation
 
-[Click here](https://documenter.getpostman.com/view/23446250/2s93CHuEuV#8f2026d4-c1b9-437c-ab07-dcf806861b5b)
+* V1 version of API is intended to provide testing platform without auth which is connected to sqlite
+* V2 version of API is intended to provide production platform with auth which is connected to mysql [Work is still going on this one]
+
+For documentation [Click here](https://documenter.getpostman.com/view/23446250/2s93CHuEuV#8f2026d4-c1b9-437c-ab07-dcf806861b5b)
   
 ## Project Setup
 
@@ -61,6 +64,14 @@ php artisan migrate    [In the project root directory]
 ```
 php artisan tinker
 App\Models\Todo::factory(30)->create();   [Creates 30 fake random records]
+```
+
+#### _Sqlite Connection_ 
+
+* According to the migrations the test tables would be created in the following env params 
+
+```
+TEST_DB_DATABASE
 ```
 
 #### Now for some fun

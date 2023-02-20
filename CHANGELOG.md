@@ -11,13 +11,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Tried using postman to check for APIs
 - He learnt about creating collections
-- And guess what he also hosted the api document on a website with postman short url support [API Documentation](https://documenter.getpostman.com/view/23446250/2s7Z13jNjD)
+- And guess what he also hosted the api document on a website with postman short url support [API Documentation](https://documenter.getpostman.com/view/23446250/2s93CHuEuV#8f2026d4-c1b9-437c-ab07-dcf806861b5b)
 
 ## [Unreleased]
 
 ### Looking out for some damn issue
 
 - Nights watch activated
+
+## [3.2]
+
+### Added
+
+- The lazy man was busy setting up code for authentication which is seperated for testing setup
+- He has setup seperate API endpoints of version V2 and also model and controller changes
+- This production setup needs a connection to mysql instead of sqlite for testing
+- He has updated documentation on postman publish and also updated readme content
+- He tried to be lazy here but he was not able to for some ackward reasons
 
 ## [3.1]
 
@@ -28,7 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He wanted to have this test setup without authentication so that the front-end guy could test without authentication and once ready they can move forward with authentication enabled endpoints
 - Now he had created seperate set of model, migration, api and controllers for the same 
 - In the process the lazy man understood how to work with sqlite3 connection with laravel
-- He got into research mode and he says the thing about sqlite3 is that we cannot use on update directly on the updated_at column and for workaround we must stick to triggers on updated_at for those tables 
+- He got into research mode and he says the thing about sqlite3 is that we cannot use on update directly on the updated_at column and for workaround we must stick to triggers on updated_at for those tables
+- This also means he cannot truncate the table which has triggers connected to it in sqlite 
 - Eventhough there was some grinding involved he knows that this setup could be used later for unit testing
 - There was lot of unexpected learnig there he says for which he needs a treat
 
@@ -227,7 +238,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v3.1...HEAD
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v3.2...HEAD
+[3.2]: https://github.com/deepak0023/laravel_backend/compare/v3.1...v3.2
 [3.1]: https://github.com/deepak0023/laravel_backend/compare/v3.0...v3.1
 [3.0]: https://github.com/deepak0023/laravel_backend/compare/v2.9...v3.0
 [2.9]: https://github.com/deepak0023/laravel_backend/compare/v2.8...v2.9

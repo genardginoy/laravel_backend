@@ -9,8 +9,6 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $connection= 'sqlite';
-
     /**
      *  Created at column
      */
@@ -33,7 +31,7 @@ class Comment extends Model
     ];
 
     public function todo() {
-        return $this->belongsTo(Todo::class, 'cm_td_id', 'td_id');
+        return $this->belongsTo(Todo::class, 'td_id', 'cm_td_id');
     }
 
 }
