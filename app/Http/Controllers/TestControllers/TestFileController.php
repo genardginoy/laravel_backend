@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\TestControllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Models\Comment;
-use App\Models\Todo;
+use App\Models\TestModel\Comment;
+use App\Models\TestModel\Todo;
 // use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 class TestFileController extends Controller
 {

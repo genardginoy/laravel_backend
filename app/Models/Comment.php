@@ -9,6 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $connection= 'sqlite';
+
     /**
      *  Created at column
      */

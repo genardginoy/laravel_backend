@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request\TestControllers;
 use Validator;
-use App\Models\Comment;
-use App\Models\Todo;
-// use Illuminate\Support\Facades\Storage;
+use App\Models\TestModel\Comment;
+use App\Models\TestModel\Todo;
+use App\Http\Controllers\Controller;
 
 class TestSoapController extends Controller
 {

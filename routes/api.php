@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'v1', 'namespace'=>'App\Http\Controllers'], function() {
+Route::group(['prefix' => 'v1', 'namespace'=>'App\Http\Controllers\TestControllers'], function() {
     Route::resource('user', 'UserController', [ 'except' => ['edit', 'create'] ]);
 
     Route::resource('user/{user_id}/todo', 'TodoController', [ 'except' => ['edit', 'create'] ]);

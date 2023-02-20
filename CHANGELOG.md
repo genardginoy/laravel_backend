@@ -19,6 +19,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [3.1]
+
+### Added
+
+- The lazy man is back to the game
+- He had some other plans before getting into authentication module
+- He wanted to have this test setup without authentication so that the front-end guy could test without authentication and once ready they can move forward with authentication enabled endpoints
+- Now he had created seperate set of model, migration, api and controllers for the same 
+- In the process the lazy man understood how to work with sqlite3 connection with laravel
+- He got into research mode and he says the thing about sqlite3 is that we cannot use on update directly on the updated_at column and for workaround we must stick to triggers on updated_at for those tables 
+- Eventhough there was some grinding involved he knows that this setup could be used later for unit testing
+- There was lot of unexpected learnig there he says for which he needs a treat
+
 ## [3.0]
 
 ### Added
@@ -214,7 +227,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v3.0...HEAD
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v3.1...HEAD
+[3.1]: https://github.com/deepak0023/laravel_backend/compare/v3.0...v3.1
 [3.0]: https://github.com/deepak0023/laravel_backend/compare/v2.9...v3.0
 [2.9]: https://github.com/deepak0023/laravel_backend/compare/v2.8...v2.9
 [2.8]: https://github.com/deepak0023/laravel_backend/compare/v2.7...v2.8

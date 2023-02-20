@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\TestControllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Models\User;
+use App\Models\TestModel\User;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -15,6 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
+
+        // dd(database_path('database.sqlite'));
+
+        // dd(config('database.connections.sqlite'));
+
         $users = User::all();
         return response()->json([
             "message" => "successfully fetched all users data",

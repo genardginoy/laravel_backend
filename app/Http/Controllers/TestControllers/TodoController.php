@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\TestControllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Models\Todo;
-use App\Models\User;
+use App\Models\TestModel\Todo;
+use App\Models\TestModel\User;
+use App\Http\Controllers\Controller;
 
 class TodoController extends Controller
 {
