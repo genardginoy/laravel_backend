@@ -19,6 +19,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nights watch activated
 
+## [3.3]
+
+### Added
+
+- Its been few days since the lazy man has gazed on the code due to some commitment 
+- Eventhough it took some sheer determination for him to get back to the code space once he was
+    in the preject on the text editor things changed
+- He tried out the basic setup for JWT by creating a seperate auth controller
+- Tested its functionality by passing token in request in different ways through postman
+- He is thinking about adding the same cover on to other auth controllers
+
 ## [3.2]
 
 ### Added
@@ -238,7 +249,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - He initilized a repository though
 
 
-[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v3.2...HEAD
+[unreleased]: https://github.com/deepak0023/laravel_backend/compare/v3.3...HEAD
+[3.3]: https://github.com/deepak0023/laravel_backend/compare/v3.2...v3.3
 [3.2]: https://github.com/deepak0023/laravel_backend/compare/v3.1...v3.2
 [3.1]: https://github.com/deepak0023/laravel_backend/compare/v3.0...v3.1
 [3.0]: https://github.com/deepak0023/laravel_backend/compare/v2.9...v3.0

@@ -34,3 +34,17 @@ Route::group(['prefix' => 'v2', 'namespace'=>'App\Http\Controllers\AuthControlle
     Route::resource('user/{user_id}/todo', 'TodoController', [ 'except' => ['edit', 'create'] ]);
     Route::resource('todo/{td_id}/comment', 'CommentController', [ 'except' => ['edit', 'create'] ]);
 });
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'v2',
+    'namespace'=>'App\Http\Controllers\AuthControllers'
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+    Route::post('payload', 'AuthController@payload');
+
+});
