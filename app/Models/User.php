@@ -45,4 +45,9 @@ class User extends Authenticatable
     public function todo() {
         return $this->hasMany(Todo::class, 'td_user_id', 'id');
     }
+
+    public function article() {
+        return $this->hasMany(Article::class, 'ar_user_id', 'id');
+    }
+
 }
