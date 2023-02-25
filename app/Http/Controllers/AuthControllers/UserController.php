@@ -10,17 +10,22 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     /**
+     * Check for authentication.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['store']]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-
-        // dd(database_path('database.sqlite'));
-
-        // dd(config('database.connections.sqlite'));
-
         $users = User::all();
         return response()->json([
             "message" => "successfully fetched all users data",

@@ -18,4 +18,19 @@ class Authenticate extends Middleware
             return route('login');
         }
     }
+
+    /**
+     * Response for unautheticated request expecting json response
+     *
+     * @param [type] $request
+     * @param array $guards
+     * @return void
+     */
+    protected function unauthenticated($request, array $guards)
+    {
+        abort(response()->json([
+            'status' => 'Error',
+            'message' => 'Unauthenticated request.'
+        ], 401));
+    }
 }

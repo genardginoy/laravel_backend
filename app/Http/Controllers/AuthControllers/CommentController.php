@@ -11,6 +11,16 @@ use App\Http\Controllers\Controller;
 class CommentController extends Controller
 {
     /**
+     * Check for authentication.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
