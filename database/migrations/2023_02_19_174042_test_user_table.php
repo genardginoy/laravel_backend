@@ -47,9 +47,11 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::connection('sqlite')->disableForeignKeyConstraints();
         // Illuminate\Support\Facades\DB::setDefaultConnection('sqlite');
         DB::connection('sqlite')->unprepared('DROP TRIGGER IF EXISTS users_updated_at_trigger');
         Schema::connection('sqlite')->dropIfExists('users');
         // Illuminate\Support\Facades\DB::setDefaultConnection('mysql');
+        Schema::connection('sqlite')->enableForeignKeyConstraints();
     }
 };

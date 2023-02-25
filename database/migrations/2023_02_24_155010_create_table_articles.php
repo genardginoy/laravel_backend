@@ -13,10 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_articles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(!Schema::hasTable('articles')) {
+            Schema::create('articles', function (Blueprint $table) {
+                $table->increments('ar_id');
+                $table->unsignedBigInteger('ar_user_id')->unsigned()->nullable(false);
+                $table->string('ar_title');
+                $table->text('ar_description');
+                $table->timestamp('ar_created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+                $table->timestamp('ar_updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            });
+        }
     }
 
     /**
@@ -26,6 +32,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_articles');
+        DB::connection('sqlite')->unprepared('DROP TRIGGER IF EXISTS articles_updated_at_trigger');
+        Schema::dropIfExists('articles');
     }
 };

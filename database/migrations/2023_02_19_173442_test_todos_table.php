@@ -24,8 +24,6 @@ return new class extends Migration
                 $table->string('td_status', 1);
                 $table->timestamp('td_created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
                 $table->timestamp('td_updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-
-                $table->foreign('td_user_id')->references('id')->on('users');
             });
 
             DB::connection('sqlite')->unprepared('
@@ -49,9 +47,11 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         // Illuminate\Support\Facades\DB::setDefaultConnection('sqlite');
         DB::connection('sqlite')->unprepared('DROP TRIGGER IF EXISTS todos_updated_at_trigger');
         Schema::connection('sqlite')->dropIfExists('todos');
         // Illuminate\Support\Facades\DB::setDefaultConnection('mysql');
+        Schema::enableForeignKeyConstraints();
     }
 };

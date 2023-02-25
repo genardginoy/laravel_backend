@@ -18,13 +18,11 @@ return new class extends Migration
         if(!Schema::connection('sqlite')->hasTable('comments')) {
             Schema::connection('sqlite')->create('comments', function (Blueprint $table) {
                 $table->increments('cm_id');
-                $table->integer('cm_td_id')->unsigned()->nullable(false);
+                $table->integer('cm_ar_id')->unsigned()->nullable(false);
                 $table->string('cm_title');
                 $table->text('cm_description');
                 $table->timestamp('cm_created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
                 $table->timestamp('cm_updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-
-                $table->foreign('cm_td_id')->references('td_id')->on('todos');
             });
 
             DB::connection('sqlite')->unprepared('
@@ -49,9 +47,11 @@ return new class extends Migration
     public function down()
     {
 
+        Schema::disableForeignKeyConstraints();
         // Illuminate\Support\Facades\DB::setDefaultConnection('sqlite');
         DB::connection('sqlite')->unprepared('DROP TRIGGER IF EXISTS  comments_updated_at_trigger');
         Schema::connection('sqlite')->dropIfExists('comments');
         // Illuminate\Support\Facades\DB::setDefaultConnection('mysql');
+        Schema::enableForeignKeyConstraints();
     }
 };

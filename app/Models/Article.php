@@ -33,4 +33,8 @@ class Article extends Model
     public function user() {
         return $this->belongsTo(User::class, 'ar_user_id', 'id');
     }
+
+    public function comment() {
+        return $this->hasMany(Comment::class, 'ar_td_id', 'ar_id');
+    }
 }

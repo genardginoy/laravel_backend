@@ -30,7 +30,7 @@ return new class extends Migration
     {
         if(Schema::hasTable('comments')) {
             Schema::table('comments', function (Blueprint $table) {
-                $table->dropForeign('comments_cm_td_id_foreign');
+                // $table->dropForeign('comments_cm_td_id_foreign');
                 $table->dropColumn('cm_td_id');
             });
         }

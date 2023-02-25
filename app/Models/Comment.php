@@ -25,13 +25,12 @@ class Comment extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'cm_td_id',
+        'cm_ar_id',
         'cm_title',
         'cm_description'
     ];
 
-    public function todo() {
-        return $this->belongsTo(Todo::class, 'td_id', 'cm_td_id');
+    public function article() {
+        return $this->belongsTo(Article::class, 'ar_id', 'cm_ar_id');
     }
-
 }

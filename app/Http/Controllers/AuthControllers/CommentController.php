@@ -5,7 +5,7 @@ namespace App\Http\Controllers\AuthControllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\AuthModel\Comment;
-use App\Models\AuthModel\Todo;
+use App\Models\AuthModel\Article;
 use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
@@ -15,17 +15,13 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($td_id)
+    public function index($ar_id)
     {
-        // $todo_comments = Todo::with('comment')->whereHas('comment', function($query) use ($td_id) {
-        //     $query->where('cm_td_id', '=', $td_id);
-        // })->first();
-
-        $todo =  Todo::where('td_id', $td_id)->first();
+        $article =  Article::where('ar_id', $ar_id)->first();
 
         return response()->json([
-            "message" => "successfully fetched all comments for the todo",
-            "data"    => $todo->comment()->get()
+            "message" => "successfully fetched all comments for the article",
+            "data"    => $article->comment()->get()
         ], 200);
     }
 
@@ -35,7 +31,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $td_id)
+    public function store(Request $request, $ar_id)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
@@ -51,7 +47,7 @@ class CommentController extends Controller
             ]);
         }
 
-        $todo = Todo::where('td_id', $td_id)->first();
+        $article = Article::where('ar_id', $ar_id)->first();
 
         // Get input values
         $comment = new Comment([
@@ -59,11 +55,11 @@ class CommentController extends Controller
             'cm_description' => $request->input('description'),
         ]);
 
-        $todo_comment = $todo->comment()->save($comment);
+        $article_comment = $article->comment()->save($comment);
 
         return response()->json([
             "message" => "Comment item successfully created for the todo",
-            "data"    => $todo_comment
+            "data"    => $article_comment
         ], 201);
     }
 
@@ -73,16 +69,12 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($td_id, $id)
+    public function show($ar_id, $id)
     {
         if(Comment::where('cm_id', $id)->exists()) {
-            // $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
-            //     $query->where('td_id', '=', $td_id);
-            // })->where('cm_id', $id)->first();
 
-            $todo = Todo::where('td_id', $td_id)->with('comment')->first();
-
-            $todo_comment = $todo->comment()->where('cm_id', $id)->first();
+            $article = Article::where('ar_id', $ar_id)->with('comment')->first();
+            $article_comment = $article->comment()->where('cm_id', $id)->first();
 
         } else {
             return response()->json([
@@ -93,7 +85,7 @@ class CommentController extends Controller
 
         return response()->json([
             "message" => "success",
-            "data"    => $todo_comment
+            "data"    => $article_comment
         ], 200);
     }
 
@@ -104,7 +96,7 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $td_id, $id)
+    public function update(Request $request, $ar_id, $id)
     {
         $data = [];
 
@@ -112,13 +104,10 @@ class CommentController extends Controller
         if(!empty($request->input('description'))) $data['cm_description'] = $request->input('description');
 
         if(Comment::where('cm_id', $id)->exists()) {
-            // $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
-            //     $query->where('td_id', '=', $td_id);
-            // })->where('cm_id', $id)->update($data);
 
-            $todo = Todo::where('td_id', $td_id)->first();
+            $article = Article::where('ar_id', $ar_id)->first();
 
-            $todo_comment = $todo->comment()->where('cm_id', $id)->update($data);
+            $article_comment = $article->comment()->where('cm_id', $id)->update($data);
 
         } else {
             return response()->json([
@@ -129,7 +118,7 @@ class CommentController extends Controller
 
         return response()->json([
             "message" => "Comment item updated successfully",
-            "data"    => $todo->comment()->where('cm_id', $id)->first()
+            "data"    => $article->comment()->where('cm_id', $id)->first()
         ], 200);
     }
 
@@ -139,16 +128,13 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($td_id, $id)
+    public function destroy($ar_id, $id)
     {
         if(Comment::where('cm_id', $id)->exists()) {
-            // $todo_comment = Comment::whereHas('todo', function($query) use ($td_id) {
-            //     $query->where('td_id', '=', $td_id);
-            // })->where('cm_id', $id)->delete();
 
-            $todo = Todo::where('td_id', $td_id)->first();
+            $article = Article::where('ar_id', $ar_id)->first();
 
-            $todo->comment()->where('cm_id', $id)->delete();
+            $article->comment()->where('cm_id', $id)->delete();
 
         } else {
             return response()->json([
