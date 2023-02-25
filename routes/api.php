@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1', 'namespace'=>'App\Http\Controllers\TestControllers'], function() {
     Route::resource('user', 'UserController', [ 'except' => ['edit', 'create'] ]);
 
-    Route::resource('user/{user_id}/todo', 'TodoController', [ 'except' => ['edit', 'create'] ]);
+    Route::resource('todo', 'TodoController', [ 'except' => ['edit', 'create'] ]);
     Route::resource('todo/{td_id}/comment', 'CommentController', [ 'except' => ['edit', 'create'] ]);
 
     Route::post('test_file', 'TestFileController@processFileInput')->name('testfile.processfileinput');
@@ -31,7 +31,7 @@ Route::group(['prefix' => 'v1', 'namespace'=>'App\Http\Controllers\TestControlle
 Route::group(['prefix' => 'v2', 'namespace'=>'App\Http\Controllers\AuthControllers'], function() {
     Route::resource('user', 'UserController', [ 'except' => ['edit', 'create'] ]);
 
-    Route::resource('user/{user_id}/todo', 'TodoController', [ 'except' => ['edit', 'create'] ]);
+    Route::resource('todo', 'TodoController', [ 'except' => ['edit', 'create'] ]);
     Route::resource('todo/{td_id}/comment', 'CommentController', [ 'except' => ['edit', 'create'] ]);
 });
 

@@ -4,8 +4,7 @@ namespace App\Http\Controllers\TestControllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Models\TestModel\Todo;
-use App\Models\TestModel\User;
+use App\Models\AuthModel\Todo;
 use App\Http\Controllers\Controller;
 
 class TodoController extends Controller
@@ -15,13 +14,12 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($user_id)
+    public function index()
     {
-        $user =  User::where('id', $user_id)->first();
-
+        $todos = Todo::all();
         return response()->json([
-            "message" => "successfully fetched all todo data",
-            "data"    => $user->todo()->get()
+            "message" => "successfully fetched all todos data",
+            "data"    => $todos
         ], 200);
     }
 
@@ -31,17 +29,14 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $user_id)
+    public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = Todo::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
-            'status' => 'required|in:o,h,c,s'
         ], [
             'title.required' => 'The title param value is required',
             'description.required' => 'The description param value is required',
-            'status.required' => 'The status param value is required',
-            'status.in' => 'Incorrect status value',
         ]);
 
         if($validator->fails()) {
@@ -50,20 +45,19 @@ class TodoController extends Controller
             ]);
         }
 
-        $user = User::where('id', $user_id)->first();
-
-        // Get input values
-        $todo = new Todo([
+        // Get input values [we need to get user id from jwt]
+        $data = [
             'td_title' => $request->input('title'),
-            'td_description' => $request->input('description'),
-            'td_status' => $request->input('status')
-        ]);
+            'td_user_id' => 1,
+            'td_description' => $request->input('descrption'),
+            'td_status' => 'o'
+        ];
 
-        $user_todo = $user->todo()->save($todo);
+        $todo = Todo::create($data);
 
         return response()->json([
-            "message" => "Todo item successfully created",
-            "data"    => $user_todo
+            "message" => "Todo successfully created",
+            "data"    => $todo
         ], 201);
     }
 
@@ -73,21 +67,20 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id, $id)
+    public function show($id)
     {
         if(Todo::where('td_id', $id)->exists()) {
-            $user = User::where('id', $user_id)->first();
-            $user_todo = $user->todo()->where('td_id', $id)->first();
+            $todo = Todo::where('td_id', $id)->first();
         } else {
             return response()->json([
-                "message" => "No todo item for the mentioned id",
+                "message" => "No todo for the mentioned id",
                 "data" => []
             ], 200);
         }
 
         return response()->json([
             "message" => "success",
-            "data"    => $user_todo
+            "data"    => $todo
         ], 200);
     }
 
@@ -98,26 +91,29 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $user_id, $id)
+    public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'status' => 'required|in:o,h,c,s'
+            'status' => 'required|in:o,p,c'
         ], [
             'status.in' => 'Incorrect status value',
         ]);
 
-        $data = [];
+        if($validator->fails()) {
+            return response()->json([
+                "message" => $validator->errors()->first()
+            ]);
+        }
 
-        if(!empty($request->input('title'))) $data['td_title'] = $request->input('title');
-        if(!empty($request->input('description'))) $data['td_description'] = $request->input('description');
-        if(!empty($request->input('status'))) $data['td_status'] = $request->input('status');
+        if(!empty($request->input('title'))) $data['ar_title'] = $request->input('title');
+        if(!empty($request->input('description'))) $data['ar_description'] = $request->input('description');
+        if(!empty($request->input('status'))) $data['ar_status'] = $request->input('status');
 
         if(Todo::where('td_id', $id)->exists()) {
-            $user = User::where('id', $user_id)->first();
-            $user_todo = $user->todo()->where('td_id', $id)->update($data);
+            Todo::where('td_id', $id)->update($data);
         } else {
             return response()->json([
-                "message" => "No todo item for the mentioned id",
+                "message" => "No todo for the mentioned id",
                 "data" => []
             ], 200);
         }
@@ -125,8 +121,8 @@ class TodoController extends Controller
         $todo_data = Todo::where('td_id', $id)->get();
 
         return response()->json([
-            "message" => "Todo item updated successfully",
-            "data"    => $user->todo()->where('td_id', $id)->first()
+            "message" => "Todo updated successfully",
+            "data"    => $todo_data
         ], 200);
     }
 
@@ -136,20 +132,19 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($user_id, $id)
+    public function destroy($id)
     {
         if(Todo::where('td_id', $id)->exists()) {
-            $user = User::where('id', $user_id)->first();
-            $user->todo()->where('td_id', $id)->delete();
+            Todo::where('td_id', $id)->delete();
         } else {
             return response()->json([
-                "message" => "No todo item for the mentioned id",
+                "message" => "No todo for the mentioned id",
                 "data" => []
             ], 200);
         }
 
         return response()->json([
-            "message" => "Todo item deleted successfully",
+            "message" => "Todo deleted successfully",
         ], 200);
     }
 }
