@@ -21,6 +21,8 @@ return new class extends Migration
                 $table->text('ar_description');
                 $table->timestamp('ar_created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
                 $table->timestamp('ar_updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
+                $table->foreign('ar_user_id')->references('id')->on('users');
             });
         }
     }
