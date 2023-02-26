@@ -26,6 +26,9 @@ Route::group(['prefix' => 'v1', 'namespace'=>'App\Http\Controllers\TestControlle
     Route::resource('course', 'CourseController', [ 'except' => ['edit', 'create'] ]);
     Route::resource('article/{ar_id}/comment', 'CommentController', [ 'except' => ['edit', 'create'] ]);
 
+    Route::post('course/{cr_id}/register', 'CourseController@registerUser')->name('course.register');
+    Route::delete('course/{cr_id}/unregister', 'CourseController@unregisterUser')->name('course.unregister');
+
     Route::post('test_file', 'TestFileController@processFileInput')->name('testfile.processfileinput');
     Route::post('test_soap', 'TestSoapController@processSoapRequest')->name('testsoap.processsoaprequest');
 });
@@ -37,6 +40,10 @@ Route::group(['prefix' => 'v2', 'namespace'=>'App\Http\Controllers\AuthControlle
     Route::resource('article', 'ArticleController', [ 'except' => ['edit', 'create'] ]);
     Route::resource('course', 'CourseController', [ 'except' => ['edit', 'create'] ]);
     Route::resource('article/{ar_id}/comment', 'CommentController', [ 'except' => ['edit', 'create'] ]);
+
+    Route::post('course/{cr_id}/register', 'CourseController@registerUser')->name('course.register');
+    Route::delete('course/{cr_id}/unregister', 'CourseController@unregisterUser')->name('course.unregister');
+
 });
 
 Route::group([

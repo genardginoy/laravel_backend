@@ -5,6 +5,7 @@ namespace App\Http\Controllers\TestControllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\TestModel\Course;
+use App\Models\TestModel\User;
 use App\Http\Controllers\Controller;
 
 class CourseController extends Controller
@@ -47,9 +48,8 @@ class CourseController extends Controller
 
         // Get input values [we need to get user id from jwt]
         $data = [
-            'ar_title' => $request->input('title'),
-            'ar_user_id' => 1,
-            'ar_description' => $request->input('descrption')
+            'cr_title' => $request->input('title'),
+            'cr_description' => $request->input('descrption')
         ];
 
         $course = Course::create($data);
@@ -68,8 +68,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        if(Course::where('ar_id', $id)->exists()) {
-            $course = Course::where('ar_id', $id)->first();
+        if(Course::where('cr_id', $id)->exists()) {
+            $course = Course::where('cr_id', $id)->first();
         } else {
             return response()->json([
                 "message" => "No course for the mentioned id",
@@ -92,11 +92,11 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(!empty($request->input('title'))) $data['ar_title'] = $request->input('title');
-        if(!empty($request->input('description'))) $data['ar_description'] = $request->input('description');
+        if(!empty($request->input('title'))) $data['cr_title'] = $request->input('title');
+        if(!empty($request->input('description'))) $data['cr_description'] = $request->input('description');
 
-        if(Course::where('ar_id', $id)->exists()) {
-            Course::where('ar_id', $id)->update($data);
+        if(Course::where('cr_id', $id)->exists()) {
+            Course::where('cr_id', $id)->update($data);
         } else {
             return response()->json([
                 "message" => "No course for the mentioned id",
@@ -104,7 +104,7 @@ class CourseController extends Controller
             ], 200);
         }
 
-        $course_data = Course::where('ar_id', $id)->get();
+        $course_data = Course::where('cr_id', $id)->get();
 
         return response()->json([
             "message" => "Course updated successfully",
@@ -120,8 +120,8 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        if(Course::where('ar_id', $id)->exists()) {
-            Course::where('ar_id', $id)->delete();
+        if(Course::where('cr_id', $id)->exists()) {
+            Course::where('cr_id', $id)->delete();
         } else {
             return response()->json([
                 "message" => "No course for the mentioned id",
@@ -131,6 +131,48 @@ class CourseController extends Controller
 
         return response()->json([
             "message" => "course deleted successfully",
+        ], 200);
+    }
+
+    /**
+     * Register user functionality [many to many]
+     *
+     * @param [type] $cr_id
+     * @return void
+     */
+    public function registerUser($cr_id) {
+
+        $user_id = 1; // need to get from auth gurd in production
+        $user = User::find($user_id);
+
+        $course = Course::where('cr_id', $cr_id)->first();
+
+        $course->user()->attach($user);
+
+        return response()->json([
+            "message" => "registered user successfully",
+            "data" => $user->course()->get()
+        ], 200);
+    }
+
+    /**
+     * Unregister user functionality [many to many]
+     *
+     * @param [type] $cr_id
+     * @return void
+     */
+    public function unregisterUser($cr_id) {
+
+        $user_id = 1; // need to get from auth gurd in production
+        $user = User::find($user_id);
+
+        $course = Course::where('cr_id', $cr_id)->first();
+
+        $course->user()->dettach($user);
+
+        return response()->json([
+            "message" => "unregistered user successfully",
+            "data" => $user->course()->get()
         ], 200);
     }
 }

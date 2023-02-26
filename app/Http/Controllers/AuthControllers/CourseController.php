@@ -5,10 +5,21 @@ namespace App\Http\Controllers\TestControllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\AuthModel\Course;
+use App\Models\AuthModel\User;
 use App\Http\Controllers\Controller;
 
 class CourseController extends Controller
 {
+    /**
+     * Check for authentication.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -130,6 +141,46 @@ class CourseController extends Controller
 
         return response()->json([
             "message" => "course deleted successfully",
+        ], 200);
+    }
+
+    /**
+     * Register user functionality [many to many]
+     *
+     * @param [type] $cr_id
+     * @return void
+     */
+    public function registerUser($cr_id) {
+
+        $user = User::find(auth()->user->id);
+
+        $course = Course::where('cr_id', $cr_id)->first();
+
+        $course->user()->attach($user);
+
+        return response()->json([
+            "message" => "registered user successfully",
+            "data" => $user->course()->get()
+        ], 200);
+    }
+
+    /**
+     * Unregister user functionality [many to many]
+     *
+     * @param [type] $cr_id
+     * @return void
+     */
+    public function unregisterUser($cr_id) {
+
+        $user = User::find(auth()->user->id);
+
+        $course = Course::where('cr_id', $cr_id)->first();
+
+        $course->user()->dettach($user);
+
+        return response()->json([
+            "message" => "unregistered user successfully",
+            "data" => $user->course()->get()
         ], 200);
     }
 }
